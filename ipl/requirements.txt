@@ -19,3 +19,4 @@ tqdm>=4.64.0
 requests
 python-decouple
 setuptools
+whitenoise

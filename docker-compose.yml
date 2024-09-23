@@ -21,22 +21,10 @@ services:
       - "8080:8080"
     command: "./wait-for-it.sh db:5432 -- python3 manage.py runserver 0:8080"
     environment:
-      - DJANGO_ENV=dev
+      - DJANGO_ENV=prod
     logging:
       driver: "json-file"
       options:
         max-size: "5m"
     restart: always
-  pgadmin:
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "user@domain.com"
-      PGADMIN_DEFAULT_PASSWORD: "admin"
-    depends_on:
-      - db
-    ports:
-      - "80"
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "5m"
+
