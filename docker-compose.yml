@@ -19,7 +19,7 @@ services:
       - db
     ports:
       - "8080:8080"
-    command: "./wait-for-it.sh db:5432 -- python3 manage.py runserver 0:8080"
+    command: ["gunicorn", "ipl.wsgi:application", "--bind", "0.0.0.0:8080", "--workers", "3"]
     environment:
       - DJANGO_ENV=prod
     logging:
