@@ -21,6 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from filebrowser.sites import site
 from django.urls import path
+from reports.views import serve_report
 
 admin.autodiscover()
 
@@ -31,6 +32,8 @@ urlpatterns = [
     path('admin/filebrowser/', site.urls),
     path('admin/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),
+re_path(r'^reports/(?P<filename>[^/]+)$', serve_report, name='serve_report'),
+
 ]
 
 #admin.site.site_header = "Experiments Administration"
