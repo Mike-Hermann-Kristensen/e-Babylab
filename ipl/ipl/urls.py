@@ -44,9 +44,6 @@ re_path(r'^media/uploads/(?P<path>.+)$', serve_upload),
 # Webcam tests
 urlpatterns += static(settings.WEBCAM_TEST_URL, document_root=settings.WEBCAM_TEST_ROOT)
 
-# Reports
-urlpatterns += static(settings.REPORTS_URL, document_root=settings.REPORTS_ROOT)
-
 # Webcam uploads
 @login_required
 def protected_serve(request, path, document_root=None, show_indexes=False):
