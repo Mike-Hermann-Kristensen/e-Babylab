@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 from filebrowser.sites import site
 from django.urls import path
 from reports.views import serve_report
+from media.uploads.views import serve_upload
 
 admin.autodiscover()
 
@@ -33,6 +34,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),
 re_path(r'^reports/(?P<filename>[^/]+)$', serve_report, name='serve_report'),
+re_path(r'^media/uploads/(?P<path>.+)$', serve_upload),
 
 ]
 

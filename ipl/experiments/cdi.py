@@ -57,9 +57,14 @@ def estimateCDI(run_uuid):
        
         # parse instrument word list
         all_words_reader = csv.DictReader(open(os.path.join(settings.MEDIA_ROOT, instrument.words_list.path), mode='r', encoding='utf-8-sig'), delimiter = ',')
+
+        logger.warning(all_words_reader)
+
+        
         
         all_words = {}
         for row in all_words_reader:
+            logger.warning(row)
             all_words[row['word']] = int(row['word_id'])
 
         # get child's age and sex
